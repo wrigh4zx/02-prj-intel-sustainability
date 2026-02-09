@@ -27,8 +27,8 @@ section {
 	display: none;
 }
 
-/* On touch-only screens, swap the helper text */
-@media (hover: none) {
+/* On touch screens, swap the helper text */
+@media (pointer: coarse) {
 	.helper-mouse {
 		display: none;
 	}

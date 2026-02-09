@@ -144,10 +144,10 @@
   </p>
 
   <script>
-    // On touch-only devices, tap a card to toggle its details.
-    const isTouchOnly = window.matchMedia("(hover: none)").matches;
+    // On touch devices, tap a card to toggle its details.
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
-    if (isTouchOnly) {
+    if (isTouchDevice) {
       const cards = document.querySelectorAll(".card");
 
       cards.forEach((card) => {
