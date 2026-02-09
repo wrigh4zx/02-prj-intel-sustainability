@@ -36,6 +36,20 @@ section {
 	.helper-touch {
 		display: inline;
 	}
+
+	/* Disable hover reveal on touch devices so tap toggles control it */
+	.card:hover {
+		transform: none;
+	}
+
+	.card:hover::after {
+		opacity: 0;
+	}
+
+	.card:hover p {
+		opacity: 0;
+		font-size: 16px;
+	}
 }
 
 /* Dark green gradient background behind the hero section */

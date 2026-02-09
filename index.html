@@ -152,7 +152,15 @@
 
       cards.forEach((card) => {
         card.addEventListener("click", () => {
-          card.classList.toggle("is-open");
+          const isOpen = card.classList.contains("is-open");
+
+          cards.forEach((otherCard) => {
+            otherCard.classList.remove("is-open");
+          });
+
+          if (!isOpen) {
+            card.classList.add("is-open");
+          }
         });
       });
     }
