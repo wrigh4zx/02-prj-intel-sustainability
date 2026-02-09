@@ -138,6 +138,24 @@
       </p>
     </div>
   </section>
-  <p style="text-align: center; padding: 40px 20px;">Scroll to view timeline | Hover over cards to learn more!</p>
+  <p class="timeline-helper">
+    <span class="helper-mouse">Scroll to view timeline | Hover over cards to learn more!</span>
+    <span class="helper-touch">Scroll to view timeline | Tap a card to show or hide details!</span>
+  </p>
+
+  <script>
+    // On touch-only devices, tap a card to toggle its details.
+    const isTouchOnly = window.matchMedia("(hover: none)").matches;
+
+    if (isTouchOnly) {
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card) => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("is-open");
+        });
+      });
+    }
+  </script>
 </body>
 </html>

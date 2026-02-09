@@ -11,6 +11,33 @@ section {
 	background-color: #ffffff;
 }
 
+/* Timeline helper text styling */
+.timeline-helper {
+	text-align: center;
+	padding: 40px 20px;
+	margin: 0;
+}
+
+/* Default: show mouse message, hide touch message */
+.helper-mouse {
+	display: inline;
+}
+
+.helper-touch {
+	display: none;
+}
+
+/* On touch-only screens, swap the helper text */
+@media (hover: none) {
+	.helper-mouse {
+		display: none;
+	}
+
+	.helper-touch {
+		display: inline;
+	}
+}
+
 /* Dark green gradient background behind the hero section */
 header {
 	background: linear-gradient(135deg, #001628, #0068b5);
@@ -83,6 +110,7 @@ header p {
 	overflow: hidden; /* Keep image and hover scale tidy */
 	transition: transform 0.5s ease; /* Smooth hover growth */
 	scroll-snap-align: start; /* Snap each card to the start */
+	cursor: pointer; /* Show this is clickable */
 }
 
 /* Grow the card slightly on hover */
@@ -104,6 +132,11 @@ header p {
 }
 
 .card:hover::after {
+	opacity: 1;
+}
+
+/* Keep the overlay visible when a card is toggled open */
+.card.is-open::after {
 	opacity: 1;
 }
 
@@ -147,6 +180,12 @@ header p {
 .card:hover p {
 	opacity: 1;
 	font-size: 18px; /* Larger text on hover */
+}
+
+/* Keep the description visible when a card is toggled open */
+.card.is-open p {
+	opacity: 1;
+	font-size: 18px;
 }
 
 /* Responsive tweaks for smaller screens */
